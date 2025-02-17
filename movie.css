@@ -8,6 +8,18 @@
 body {
     background-color: #121212;
     color: white;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* 🚀 Animated Intro */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Navbar */
@@ -18,9 +30,20 @@ body {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 0;
+    top: -100px;  /* Start outside screen */
     width: 100%;
     z-index: 1000;
+    animation: slideDown 1s ease-in-out forwards 0.5s;
+}
+
+/* 🚀 Navbar Slide-in Animation */
+@keyframes slideDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0;
+    }
 }
 
 .navbar h1 {
@@ -28,7 +51,7 @@ body {
     font-size: 20px;
 }
 
-/* Mobile Menu Icon */
+/* Mobile Menu */
 .menu-icon {
     display: none;
     font-size: 24px;
@@ -66,11 +89,16 @@ body {
     text-align: center;
     margin-top: 100px;
     padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards 1s;
 }
 
 .hero h2 {
     font-size: 2rem;
     margin-bottom: 10px;
+    transform: translateY(-30px);
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards 1.2s;
 }
 
 .hero .btn {
@@ -82,6 +110,8 @@ body {
     border-radius: 20px;
     font-size: 1.2rem;
     transition: 0.5s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards 1.5s;
 }
 
 .hero .btn:hover {
@@ -90,6 +120,18 @@ body {
     box-shadow: 0 0 20px rgba(82, 159, 231, 0.7),
         0 0 40px rgba(63, 193, 233, 0.5),
         0 0 60px rgba(74, 30, 197, 0.3);
+}
+
+/* 🚀 Hero Slide-up Animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Movie Cards */
