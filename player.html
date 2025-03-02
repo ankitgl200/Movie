@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Player</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        iframe {
+            width: 80%;
+            height: 500px;
+            margin-top: 20px;
+            border: none;
+            
+        }
+        #error-message {
+            color: red;
+            font-size: 20px;
+            display: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- <nav class="navbar">
+        <h1>Private Movie Downloader</h1>
+        <ul class="nav-links">
+            <li><a href="movie.html" target="_blank">Home</a></li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Comedy</a></li>
+            <li><a href="#">Drama</a></li>
+        </ul>
+    </nav> -->
+
+    <h1>Now Playing</h1>
+    <iframe id="videoPlayer" allowfullscreen></iframe>
+    <p id="error-message">⚠️ Error: Video cannot be loaded!</p>
+
+    <script>
+        // Get video URL from query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoURL = urlParams.get('video');
+
+        if (videoURL) {
+            const iframe = document.getElementById("videoPlayer");
+            iframe.src = decodeURIComponent(videoURL);
+
+            // Error handling
+            iframe.onerror = function() {
+                document.getElementById("error-message").style.display = "block";
+                iframe.style.display = "none";
+            };
+        } else {
+            document.getElementById("error-message").innerText = "⚠️ No video URL found!";
+            document.getElementById("error-message").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
