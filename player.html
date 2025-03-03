@@ -11,33 +11,27 @@
             text-align: center;
         }
         iframe {
-            width: 80%;
-            height: 500px;
+            width: 90%;
+            height: 600px;
             margin-top: 20px;
-            border: none;
-            
+            border: 2px solid white;
+            border-radius: 20px;
         }
         #error-message {
             color: red;
             font-size: 20px;
             display: none;
         }
+        .main{
+            background-color: black;
+            color: whitesmoke;
+        }
 
         
     </style>
 </head>
 <body>
-    <!-- <nav class="navbar">
-        <h1>Private Movie Downloader</h1>
-        <ul class="nav-links">
-            <li><a href="movie.html" target="_blank">Home</a></li>
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Comedy</a></li>
-            <li><a href="#">Drama</a></li>
-        </ul>
-    </nav> -->
-
-    <h1>Now Playing</h1>
+    <h1 class="main">Online Movie Player</h1>
     <iframe id="videoPlayer" allowfullscreen></iframe>
     <p id="error-message">⚠️ Error: Video cannot be loaded!</p>
 
