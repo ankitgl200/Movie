@@ -89,6 +89,34 @@ body {
     0 0 60px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        display: block;
+        margin: 10px 0;
+    }
+}
 
 /* Hero Section */
 .hero {
@@ -489,7 +517,7 @@ body {
 .contact h4 {
     text-align: center;
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     animation: slideDown 1s ease-in-out;
 }
 
@@ -507,6 +535,7 @@ body {
 .contact li a {
     color: white;
     margin-top: 20px;
+    margin: 20px;
     font-size: 20px;
     text-decoration: none;
     background: #444; /* Darker background for better contrast */
@@ -538,3 +567,32 @@ body {
         padding: 6px 12px;
     }
 }
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ebe5e5;
+    color: #030303;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .telegram {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fffdfd;
+    color: #070707;
+    padding: 10px 20px;
+    border-radius: 100px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  
