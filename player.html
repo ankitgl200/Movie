@@ -212,7 +212,8 @@
 
         <ul>
             <li>
-                <a href="https://www.instagram.com/_ankit_gl/" target="_blank">Join me On Instagram</a>
+                <a id="instagramBtn">Join me On Instagram</a>
+                <div id="instagram" class="telegram">Account Will Be Added Soon</div>
                 <a id="telegramBtn">Join me On Telegram</a>
                 <div id="telegram" class="telegram">Channel Will Be Created Soon</div>
                 <!-- <a href="https://web.telegram.org/" target="_blank">Join me On Telegram</a> -->
@@ -287,6 +288,21 @@
                 setTimeout(() => popup.style.display = "none", 300);
             }, 3000); // Show for 2 seconds
         }
+
+        document.getElementById("instagramBtn").addEventListener("click", function () {
+        showinstagramPopup();
+    });
+
+    function showinstagramPopup() {
+        const popup = document.getElementById("instagram");
+        popup.style.display = "block";
+        popup.style.opacity = "1";
+
+        setTimeout(() => {
+            popup.style.opacity = "0";
+            setTimeout(() => popup.style.display = "none", 300);
+        }, 3000); // Show for 2 seconds
+    }
     </script>
 
 </body>
