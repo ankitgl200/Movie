@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Section</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/x-icon"
+        href="logo.png">
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="newsec"><img src="logo.png" alt="logo">Series Section</h1>
+        
+        <ul class="nav-links">
+            <li><a href="index.html" target="_blank">Home</a></li>
+            <li><a href="index.html">Movies</a></li>
+            <li><a href="#">Comedy</a></li>
+            <li><a href="#">Drama</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <p class="btn">Watch Your Favourite Series Here</p>
+    </div>
+
+    <div class="container" id="movies">
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDQxODJlNjctNTJmMi00ZDNlLWI1MTItNjM0ZWY5OGQyOWE4XkEyXkFqcGc@._V1_.jpg"
+                alt="Marco">
+            <div class="card-content">
+                <div class="card-title" data-title="Marco">Oops Ab Kya??</div>
+                <!-- <p class="download-btn">Comming Soon</p> -->
+                <div class="card-description">Watch Here</div>
+                <div class="card-description">TOTAL EPISODES-08</div>
+                    <button class="download-btn" onclick="redirectToSeries('Oops Ab Kya')">Watch online</button>
+                
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtrf8f5mJokRqk5hSUEzV3QgVqO59fB7ahB7pnHbrVU7BbHl6fLALoUF4z&s=10"
+                alt="Marco">
+            <div class="card-content">
+                <div class="card-title" data-title="Marco">Pyar Ka Professor</div>
+                <!-- <p class="download-btn">Comming Soon</p> -->
+                <div class="card-description">Watch Here</div>
+                <div class="card-description">TOTAL EPISODES-06</div>
+                    <button class="download-btn" onclick="redirectToSeries('Pyar Ka Professor')">Watch online</button>
+                
+            </div>
+        </div>
+        
+        <div class="card">
+            <!-- <img src="" alt="Marco"> -->
+            <video src="https://v1.pinimg.com/videos/mc/720p/61/3e/5b/613e5b760ef247459d51eab364c25542.mp4"
+            alt="No Video" autoplay loop muted></video>
+            <div class="card-content">
+                <div class="card-title" data-title="Marco">Comming Soon</div>
+                <p class="download-btn">Comming Soon</p>
+                <div class="card-description">Watch Here</div>
+                <div class="card-description">TOTAL EPISODES-00</div>
+                    <!-- <button class="download-btn" onclick="redirectToSeries('Oops Ab Kya')">Watch online</button> -->
+                
+            </div>
+        </div>
+        <div class="card">
+            <!-- <img src="" alt="Marco"> -->
+            <video src="https://v1.pinimg.com/videos/mc/720p/61/3e/5b/613e5b760ef247459d51eab364c25542.mp4"
+            alt="No Video" autoplay loop muted></video>
+            <div class="card-content">
+                <div class="card-title" data-title="Marco">Comming Soon</div>
+                <p class="download-btn">Comming Soon</p>
+                <div class="card-description">Watch Here</div>
+                <div class="card-description">TOTAL EPISODES-00</div>
+                    <!-- <button class="download-btn" onclick="redirectToSeries('Oops Ab Kya')">Watch online</button> -->
+                
+            </div>
+        </div>
+        
+
+    </div>
+    <hr>
+    <h2 class="ending">Thanks For Visiting</h2>
+    <h3 class="ending">Hope You Enjoyed</h3>
+
+
+
+
+
+    <script>
+        function redirectToSeries(seriesName) {
+            window.location.href = `series.html?name=${encodeURIComponent(seriesName)}`;
+        }
+    </script>
+</body>
+</html>
