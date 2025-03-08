@@ -575,16 +575,12 @@ body {
     font-size: 20px;
     text-decoration: none;
     
-    /* Darker background for better contrast */
+   
     padding: 10px 20px;
-    /* Increase padding for better spacing */
-    border-radius: 15px;
-    /* Rounder corners */
-    border: none;
-    /* Remove border */
     
+    border-radius: 15px;
+border: none;
     display: block;
-    /* Ensure links are block elements to avoid overlap */
 }
 
 /* Responsive Design */
@@ -750,11 +746,6 @@ body {
   text-decoration: none;
 }
 
-/* .label .title a{
-    text-align: center;
-    color: #fff;
-    text-decoration: none;
-} */
 
 .label .title:last-child {
   opacity: 0;
@@ -1068,16 +1059,6 @@ body {
   display: none;
 }
 .checkhead{
-    /* position: relative;
-    top: 100px;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    padding: 20px;
-    background-color: ;
-    border-radius: 50px;
-    animation: fadeIn 1s ease-in-out; */
     display: inline-block;
     margin-top: 10px;
     position: relative;
