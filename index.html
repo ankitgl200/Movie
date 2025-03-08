@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar">
         <h1>Movie Factory</h1>
-        
+
         <ul class="nav-links">
             <li><a href="index.html" target="_blank">Home</a></li>
             <li><a href="#">Action</a></li>
@@ -22,21 +22,32 @@
             <li><a href="player.html">Movie Player</a></li>
         </ul>
     </nav>
+    <div>
+
+        <p class="checkhead">Light Mode</p>
+        <input id="checkbox" type="checkbox" />
+        <label class="switch" id="darkModeToggle" for="checkbox">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
+                <path
+                    d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z">
+                </path>
+            </svg>
+        </label>
+    </div>
 
     <div class="hero">
-        
+
         <h2><span>Welcome To Your's Private Movie Center</span></h2>
         <p class="btn">Watch Online And Download Movies and Keep It Private</p>
     </div>
 
     <div class="container" id="movies">
-        
-        <div class="card" >
-            <video src="Series Section.mp4"
-                alt="No Video" autoplay loop muted class="series"></video>
+
+        <div class="card">
+            <video src="Series section.mp4" alt="No Video" autoplay loop muted class="series"></video>
             <div class="card-content">
                 <div class="card-title" data-title="Comming Soon">Series Section</div>
-                
+
                 <!-- <p class="download-btn">Comming Soon</p> -->
                 <a href="main.html" class="download-btn">Series Section</a>
             </div>
@@ -51,7 +62,7 @@
                 <div class="card-title" data-title="Marco">Fantastic Beasts 3</div>
                 <div class="card-description">Download and Watch Online</div>
                 <!-- <p class="download-btn">Comming Soon</p> -->
-                
+
                 <a href="player.html?video=https://drive.google.com/file/d/11HhGcYzMixBAA858EXAwTWEx5-O1kUop/preview"
                     width="90%" height="600" allow="autoplay" target="_blank">
                     <button class="download-btn">Watch online</button>
@@ -68,7 +79,7 @@
                 <div class="card-title" data-title="Marco">Fantastic Beasts 2(Eng.)</div>
                 <div class="card-description">Download and Watch Online</div>
                 <!-- <p class="download-btn">Comming Soon</p> -->
-                
+
                 <a href="player.html?video=https://drive.google.com/file/d/1Ni6kh80bqEbTKdOKqn_StvPArS2Vazy8/preview"
                     width="90%" height="600" allow="autoplay" target="_blank">
                     <button class="download-btn">Watch online</button>
@@ -85,7 +96,7 @@
                 <div class="card-title" data-title="Marco">Chhaava</div>
                 <div class="card-description">Download and Watch Online</div>
                 <!-- <p class="download-btn">Comming Soon</p> -->
-                
+
                 <a href="player.html?video=https://drive.google.com/file/d/1cQwIyPItlQKtbcWjq34bMw0wFjWZ7zS0/preview"
                     width="90%" height="600" allow="autoplay" target="_blank">
                     <button class="download-btn">Watch online</button>
@@ -102,7 +113,7 @@
                 <div class="card-title" data-title="Marco">Ramayana: The Legend...</div>
                 <div class="card-description">Download and Watch Online</div>
                 <!-- <p class="download-btn">Comming Soon</p> -->
-                
+
                 <a href="player.html?video=https://drive.google.com/file/d/1QpJfYBpFskZGVud-50LKg0yZdZwWpBWp/preview"
                     width="90%" height="600" allow="autoplay" target="_blank">
                     <button class="download-btn">Watch online</button>
@@ -112,7 +123,7 @@
 
             </div>
         </div>
-        
+
         <div class="card">
             <img src="https://scontent.fbek1-2.fna.fbcdn.net/v/t1.15752-9/462580058_1324217935268319_168868234402507424_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_ohc=pJrIXKwCxIMQ7kNvgFSe364&_nc_oc=AdhFszDpn8Y7tDqUDpXQB1Arc4qC2Nd6EACN87Ih3AUWllYF2XCEWZmr6686Lpu8hvk&_nc_ad=z-m&_nc_cid=1174&_nc_zt=23&_nc_ht=scontent.fbek1-2.fna&oh=03_Q7cD1gGxwp6yKCohFP0sGuujAn_Q2Yyrxr8-Kdoh-4sIZlTkgQ&oe=67ED3BB6"
                 alt="Movie 1">
@@ -159,12 +170,12 @@
                     download class="download-btn" target="_blank">Download</a>
             </div>
         </div>
-    
+
         <div class="card">
             <img src="https://scontent.fbek1-1.fna.fbcdn.net/v/t1.15752-9/481716950_1148838653374903_6470561665471048136_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=8DCvRK0RRL0Q7kNvgEQYpDB&_nc_oc=AdgEQfyb-EsNrLaXXH8l9D15TsFa3UwqLjQSWIblMna6uGritn_cm-NJBq2xhhOTjqo&_nc_ad=z-m&_nc_cid=1174&_nc_zt=23&_nc_ht=scontent.fbek1-1.fna&oh=03_Q7cD1gG5-c_MPzVlXITdj0xGGYa-EvmQU3_eiW3Q-Nzom6787g&oe=67ED31CD"
                 alt="Movie img">
             <div class="card-content">
-                <div class="card-title" data-title="Sky Forces" >Sky Forces</div>
+                <div class="card-title" data-title="Sky Forces">Sky Forces</div>
                 <div class="card-description">Download and Watch Online</div>
                 <!-- <p class="download-btn">Comming Soon</p> -->
 
@@ -233,8 +244,8 @@
                 <!-- <a href="" download class="download-btn">Comming Soon</a> -->
             </div>
         </div>
-        
-        
+
+
     </div>
     <hr>
     <div class="card1">
@@ -242,7 +253,7 @@
             <div class="update">
                 <h4>UPDATES:</h4>
                 <div class="update-content">
-                    
+
                     <ul>
                         <li>Series Section Is Added</li>
                         <li>New Movies Added</li>
@@ -256,80 +267,73 @@
                 </div>
             </div>
         </div>
-      </div>
+    </div>
 
-      <hr>
+    <hr>
 
 
     <div class="links">
-        <h4 >Other Links:</h4>
+        <h4>Other Links:</h4>
 
         <ul>
             <li>
                 <button class="button" data-text="Awesome">
-                    <a  class="actual-text">&nbsp;Join Us On Telegram&nbsp;&nbsp;</a>
+                    <a class="actual-text">&nbsp;Join Us On Telegram&nbsp;&nbsp;</a>
                     <a aria-hidden="true" class="hover-text" id="telegramBtn">&nbsp;Join&nbsp;</a>
                 </button>
                 <div id="telegram" class="telegram">Channel Will Be Created Soon</div>
                 <button class="button" data-text="Awesome">
-                    <a  class="actual-text">&nbsp;Join Us On Instagram&nbsp;&nbsp;</a>
+                    <a class="actual-text">&nbsp;Join Us On Instagram&nbsp;&nbsp;</a>
                     <a aria-hidden="true" class="hover-text" id="instagramBtn">&nbsp;Join&nbsp;</a>
                 </button>
                 <div id="instagram" class="telegram">Account Will Be Added Soon</div>
 
                 <button class="button" data-text="Awesome">
-                    <a  class="actual-text">&nbsp;Checkout New Upcoming
+                    <a class="actual-text">&nbsp;Checkout New Upcoming
                         Movies&nbsp;&nbsp;</a>
-                    <a aria-hidden="true" class="hover-text"  href="https://in.bookmyshow.com/explore/hindi-upcoming-movies" target="_blank">&nbsp;Checkout&nbsp;</a>
+                    <a aria-hidden="true" class="hover-text"
+                        href="https://in.bookmyshow.com/explore/hindi-upcoming-movies"
+                        target="_blank">&nbsp;Checkout&nbsp;</a>
                 </button>
-                
+
                 <button class="button" data-text="Awesome">
-                    <a  class="actual-text">&nbsp;Share With Friends&nbsp;&nbsp;</a>
-                    <a aria-hidden="true" class="hover-text" id="copyBtn" data-link="https://ankitgl200.github.io/Movie/">&nbsp;Share&nbsp;</a>
+                    <a class="actual-text">&nbsp;Share With Friends&nbsp;&nbsp;</a>
+                    <a aria-hidden="true" class="hover-text" id="copyBtn"
+                        data-link="https://ankitgl200.github.io/Movie/">&nbsp;Share&nbsp;</a>
                 </button>
                 <div id="popup" class="popup">Link copied to clipboard! SHARE IT WITH FRIENDS</div>
-                
+
             </li>
         </ul>
     </div>
     <hr>
     <div class="app">
-        <h3 >Try These</h3>
-        
+        <h3>Try These</h3>
+
         <div class="dcontainer">
             <label class="label">
-              <input type="checkbox" class="input" id="downloadCheckbox" />
-              <span class="circle"
-                ><svg
-                  class="icon"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M12 19V5m0 14-4-4m4 4 4-4"
-                  ></path>
-                </svg>
-                <div class="square"></div>
-              </span>
-              
-              <a aria-hidden="true" href="moviefactoryupdated.apk" download class="title" id="downloadLink">Download</a>
-              <p class="title" id="animation">Done</p>
+                <input type="checkbox" class="input" id="downloadCheckbox" />
+                <span class="circle"><svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M12 19V5m0 14-4-4m4 4 4-4"></path>
+                    </svg>
+                    <div class="square"></div>
+                </span>
+
+                <a aria-hidden="true" href="moviefactoryupdated.apk" download class="title"
+                    id="downloadLink">.</a>
+                <p class="title" id="animation">Done</p>
             </label>
             <div class="tooltip-container">
                 <span class="tooltip">Hey, Myself Ankit and I am the Owner And Developer Of This Site</span>
                 <span class="text">Know About Me</span>
-              </div>
+            </div>
         </div>
 
-          
-          
-          
+
+
+
     </div>
     <hr>
     <div class="end">
@@ -396,11 +400,32 @@
             setTimeout(() => popup.style.display = "none", 300);
         }, 3000); // Show for 2 seconds
     }
-document.getElementById("downloadCheckbox").addEventListener("change", function () {
-    if (this.checked) {
-        document.getElementById("downloadLink").click();
-        document.getElementById("animation").style.display = "block";
+    document.getElementById("downloadCheckbox").addEventListener("change", function () {
+        if (this.checked) {
+            document.getElementById("downloadLink").click();
+            document.getElementById("animation").style.display = "block";
+        }
+    });
+
+    document.getElementById("darkModeToggle").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+
+    // Save user preference in local storage
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
     }
 });
+
+// Load user preference on page load
+window.onload = function() {
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+};
+
+
 </script>
+
 </html>
