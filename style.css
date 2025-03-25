@@ -1,9 +1,4 @@
-/* body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    background: url(https://i.pinimg.com/736x/c8/46/b0/c846b0dc88d67b0c1f3373d60cb22c3f.jpg)no-repeat center center/cover;
-} */
+
 body {
     margin: auto;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -54,7 +49,7 @@ body {
 
 @keyframes wave {
     2% {
-        transform: translateX(1);
+        transform: translateX(0);
     }
 
     25% {
@@ -70,7 +65,7 @@ body {
     }
 
     100% {
-        transform: translateX(1);
+        transform: translateX(0);
     }
 }
 
@@ -119,7 +114,6 @@ nav h1 {
 
 .nav-links li {
     display: inline;
-    border: 2px solid white;
     border-radius: 10px;
     padding: 4px;
 }
@@ -166,7 +160,7 @@ header h1 {
     margin: 10px;
     text-align: center;
     align-self: flex-start; 
-    text-shadow: 10px 10px 10px rgba(255, 255, 255, 0.510);
+    text-shadow: 10px 10px 10px rgba(255, 255, 255, 0.450);
     transition: color 0.3s, transform 0.2s;
 }
 
@@ -175,7 +169,7 @@ header .middle {
     margin: 10px;
     text-align: center;
     align-self: flex-start; 
-    text-shadow: 10px 10px 10px rgba(255, 255, 255, 0.510);
+    text-shadow: 10px 10px 10px rgba(255, 255, 255, 0.450);
     transition: color 0.3s, transform 0.2s;
 }
 
@@ -837,6 +831,9 @@ button:hover {
       position: fixed;
       width: 100%; /* Ensure the navbar spans the full width */
   }
+  nav h1{
+    font-size: 30px;
+  }
 
   .nav-links {
       display: none; /* Hide links for smaller screens */
@@ -864,12 +861,20 @@ button:hover {
   }
 
   .slider {
-      width: 100%; /* Ensure the slider spans the full width */
+      width: 90%; /* Ensure the slider spans the full width */
       margin: 0 auto;
   }
 
   .slides img {
       width: 100%; /* Ensure images are responsive */
       height: auto;
+  }
+
+  .movies h2{
+    margin: 20px;
+    color: white;
+    font-size: bolder;
+    font-size: 20px;
+    text-align: center;
   }
 }
