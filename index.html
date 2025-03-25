@@ -110,6 +110,8 @@
         <h2>Available Movies & Series</h2>
         <div class="slider">
             <div class="slides">
+                <img src="https://i.gadgets360cdn.com/large/image_2_F_1742464512208.jpg" alt="Image 13">
+                <img src="https://i.ytimg.com/vi/YzUP-V5-lhI/maxresdefault.jpg" alt="Image 14">
                 <img src="https://i.ytimg.com/vi/l8mR-Lnn0kw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLABNvKJ5FcqKzIq-fx9B6bQiuV8Gg"
                     alt="Image 1">
                 <img src="https://c.ndtvimg.com/2025-02/12mbv9vo_mere-husband-ki-biwi_625x300_01_February_25.jpeg?im=FitAndFill,algorithm=dnn,width=1200,height=738"
@@ -128,6 +130,7 @@
                 <img src="https://assets-in.bmscdn.com/discovery-catalog/events/et00363454-nczrtrltpx-landscape.jpg"
                     alt="Image 11">
                 <img src="https://i.ytimg.com/vi/cap6GNqngyQ/maxresdefault.jpg" alt="Image 12">
+                
             </div>
             <button class="prev" onclick="prevSlide()">&#10094;</button>
             <button class="next" onclick="nextSlide()">&#10095;</button>
@@ -151,7 +154,7 @@
                             <div class="text">New Movies</div>
                         </li>
                         <li class="iso-pro">
-                            <div id="telegram" class="telegram">Channel Will Be Created Soon</div>
+                            
                             <span></span>
                             <span></span>
                             <span></span>
@@ -162,13 +165,14 @@
                                     </path>
                                 </svg>
                             </a>
+                            <div id="tele" class="telegram">Channel Will Be Created Soon</div>
                             <div class="text">Telegram</div>
                         </li>
                         <li class="iso-pro">
                             <span></span>
                             <span></span>
                             <span></span>
-                            
+                            <a >
                                 <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                     <path
                                         d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
@@ -225,6 +229,7 @@
 
     </div>
     <script>
+        alert("New Movies Added");
         let index = 0;
 
         function showSlide(n) {
@@ -271,20 +276,23 @@
             setTimeout(() => popup.style.display = "none", 300); // Hide after fade-out
         }, 2000); // Show for 2 seconds
     }
+    
+
     document.getElementById("telegramBtn").addEventListener("click", function () {
         showtelegramPopup();
     });
 
     function showtelegramPopup() {
-        const popup = document.getElementById("telegram");
+        const popup = document.getElementById("tele");
         popup.style.display = "block";
         popup.style.opacity = "1";
 
         setTimeout(() => {
             popup.style.opacity = "0";
             setTimeout(() => popup.style.display = "none", 300);
-        }, 3000); // Show for 2 seconds
+        }, 4000); // Show for 2 seconds
     }
+
     document.getElementById("downBtn").addEventListener("click", function () {
         showtelegramPopup();
     });
