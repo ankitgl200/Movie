@@ -303,6 +303,25 @@
             setTimeout(() => popup.style.display = "none", 300);
         }, 3000); // Show for 2 seconds
     }
+
+    let lastTapLeft = 0;
+let lastTapRight = 0;
+
+document.getElementById("leftTap").addEventListener("click", function () {
+    let currentTime = new Date().getTime();
+    if (currentTime - lastTapLeft < 300) {
+        player.currentTime = Math.max(0, player.currentTime - 10); // Skip backward 10 seconds
+    }
+    lastTapLeft = currentTime;
+});
+
+document.getElementById("rightTap").addEventListener("click", function () {
+    let currentTime = new Date().getTime();
+    if (currentTime - lastTapRight < 300) {
+        player.currentTime = Math.min(player.duration, player.currentTime + 10); // Skip forward 10 seconds
+    }
+    lastTapRight = currentTime;
+});
     </script>
 
 </body>
