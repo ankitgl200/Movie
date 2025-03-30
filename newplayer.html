@@ -17,8 +17,16 @@
         }
 
         video {
-            width: 90%;
-            height: 600px;
+            width: 100%;
+            height: 650px;
+            margin-top: 20px;
+            border: 2px solid white;
+            border-radius: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 650px;
             margin-top: 20px;
             border: 2px solid white;
             border-radius: 20px;
@@ -90,10 +98,33 @@
             transform: scale(1.05);
         }
 
+        /* Skip feedback indicators */
+        .skip-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        #skipBackward {
+            left: 20%;
+        }
+
+        #skipForward {
+            right: 20%;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            video {
-                height: 50vh;
+            video, iframe {
+                height: 60vh;
             }
 
             .contact h4 {
@@ -107,8 +138,8 @@
         }
 
         @media (max-width: 480px) {
-            video {
-                height: 40vh;
+            video, iframe {
+                height: 50vh;
             }
 
             .contact h4 {
@@ -199,13 +230,38 @@
                 font-size: 12px;
             }
         }
+
+        #videoContainer {
+            position: relative;
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .tap-area {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 40%;
+            z-index: 10;
+        }
+
+        #leftTap {
+            left: 0;
+        }
+
+        #rightTap {
+            right: 0;
+        }
     </style>
 </head>
 
 <body>
     <h1 class="main">Online Movie Player</h1>
-    <!-- <iframe id="" allowfullscreen></iframe> -->
-    <video id="videoPlayer" controls alllowfullscreen >not found</video>
+    <div id="videoContainer">
+        <!-- Video player will be inserted here by JavaScript -->
+        <div id="skipBackward" class="skip-indicator">-10s</div>
+        <div id="skipForward" class="skip-indicator">+10s</div>
+    </div>
     <p id="error-message">⚠️ Error: Video cannot be loaded!</p>
     <hr>
     <div class="contact">
@@ -216,7 +272,6 @@
                 <a href="https://www.instagram.com/_ankit_gl/" target="_blank">Join me On Instagram</a>
                 <a id="telegramBtn">Join me On Telegram</a>
                 <div id="telegram" class="telegram">Channel Will Be Created Soon</div>
-                <!-- <a href="https://web.telegram.org/" target="_blank">Join me On Telegram</a> -->
                 <a href="https://in.bookmyshow.com/explore/hindi-upcoming-movies" target="_blank">Checkout New Upcoming
                     Movies</a>
                 
@@ -238,21 +293,104 @@
         // Get video URL from query string
         const urlParams = new URLSearchParams(window.location.search);
         const videoURL = urlParams.get('video');
-
+        const videoContainer = document.getElementById("videoContainer");
+        const skipBackwardIndicator = document.getElementById("skipBackward");
+        const skipForwardIndicator = document.getElementById("skipForward");
+        
         if (videoURL) {
-            const iframe = document.getElementById("videoPlayer");
-            iframe.src = decodeURIComponent(videoURL);
-
-            // Error handling
-            iframe.onerror = function () {
-                document.getElementById("error-message").style.display = "block";
-                iframe.style.display = "none";
-            };
+            const decodedURL = decodeURIComponent(videoURL);
+            
+            // Check if it's a Google Drive link
+            if (decodedURL.includes('drive.google.com')) {
+                let fileId = '';
+                
+                // Extract file ID from different formats of Google Drive links
+                if (decodedURL.includes('/file/d/')) {
+                    fileId = decodedURL.split('/file/d/')[1].split('/')[0];
+                } else if (decodedURL.includes('open?id=')) {
+                    fileId = decodedURL.split('open?id=')[1].split('&')[0];
+                } else if (decodedURL.includes('uc?id=')) {
+                    fileId = decodedURL.split('uc?id=')[1].split('&')[0];
+                }
+                
+                if (fileId) {
+                    // Create an iframe for Google Drive content
+                    const iframe = document.createElement('iframe');
+                    iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+                    iframe.allowFullscreen = true;
+                    iframe.frameBorder = "0";
+                    videoContainer.appendChild(iframe);
+                    
+                    // Add tap areas for mobile interaction
+                    const leftTap = document.createElement('div');
+                    leftTap.id = 'leftTap';
+                    leftTap.className = 'tap-area';
+                    videoContainer.appendChild(leftTap);
+                    
+                    const rightTap = document.createElement('div');
+                    rightTap.id = 'rightTap';
+                    rightTap.className = 'tap-area';
+                    videoContainer.appendChild(rightTap);
+                    
+                    // Set up error handling
+                    iframe.onerror = function() {
+                        document.getElementById("error-message").style.display = "block";
+                    };
+                } else {
+                    showError("Unable to extract file ID from Google Drive link");
+                }
+            } else {
+                // For non-Google Drive links, use regular video player
+                const video = document.createElement('video');
+                video.id = 'videoPlayer';
+                video.controls = true;
+                video.allowFullscreen = true;
+                video.src = decodedURL;
+                videoContainer.appendChild(video);
+                
+                // Add tap areas for mobile interaction
+                const leftTap = document.createElement('div');
+                leftTap.id = 'leftTap';
+                leftTap.className = 'tap-area';
+                videoContainer.appendChild(leftTap);
+                
+                const rightTap = document.createElement('div');
+                rightTap.id = 'rightTap';
+                rightTap.className = 'tap-area';
+                videoContainer.appendChild(rightTap);
+                
+                // Set up error handling
+                video.onerror = function() {
+                    document.getElementById("error-message").style.display = "block";
+                };
+                
+                // Add keyboard controls for video player
+                document.addEventListener("keydown", function(event) {
+                    if (event.key === "ArrowRight") {
+                        video.currentTime = Math.min(video.duration, video.currentTime + 10); // Skip forward 10 seconds
+                    } else if (event.key === "ArrowLeft") {
+                        video.currentTime = Math.max(0, video.currentTime - 10); // Skip backward 10 seconds
+                    } else if (event.key === " ") {
+                        event.preventDefault(); // Prevent page scrolling when pressing space
+                        if (video.paused) {
+                            video.play(); // Play the video
+                        } else {
+                            video.pause(); // Pause the video
+                        }
+                    }
+                });
+            }
         } else {
-            document.getElementById("error-message").innerText = "⚠️ No video URL found!";
-            document.getElementById("error-message").style.display = "block";
+            showError("No video URL found!");
+        }
+        
+        function showError(message) {
+            const errorElement = document.getElementById("error-message");
+            errorElement.innerText = "⚠️ " + message;
+            errorElement.style.display = "block";
         }
 
+        // Copy button functionality
         document.getElementById("copyBtn").addEventListener("click", function () {
             const link = this.getAttribute("data-link");
 
@@ -274,6 +412,7 @@
             }, 2000); // Show for 2 seconds
         }
 
+        // Telegram button functionality
         document.getElementById("telegramBtn").addEventListener("click", function () {
             showTelegramPopup();
         });
@@ -286,45 +425,62 @@
             setTimeout(() => {
                 popup.style.opacity = "0";
                 setTimeout(() => popup.style.display = "none", 300);
-            }, 3000); // Show for 2 seconds
+            }, 3000); // Show for 3 seconds
         }
 
-       // Get the video player element
-const player = document.getElementById("videoPlayer");
-
-document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowRight") {
-        player.currentTime = Math.min(player.duration, player.currentTime + 10); // Skip forward 10 seconds
-    } else if (event.key === "ArrowLeft") {
-        player.currentTime = Math.max(0, player.currentTime - 10); // Skip backward 10 seconds
-    } else if (event.key === " ") {
-        event.preventDefault(); // Prevent page scrolling when pressing space
-        if (player.paused) {
-            player.play(); // Play the video
-        } else {
-            player.pause(); // Pause the video
+        // Function to show skip indicator and then hide it
+        function showSkipIndicator(indicator) {
+            indicator.style.opacity = "1";
+            setTimeout(() => {
+                indicator.style.opacity = "0";
+            }, 500);
         }
-    }
-});
 
-let lastTapLeft = 0;
-let lastTapRight = 0;
-
-document.getElementById("leftTap").addEventListener("click", function () {
-    let currentTime = new Date().getTime();
-    if (currentTime - lastTapLeft < 300) {
-        player.currentTime = Math.max(0, player.currentTime - 10); // Skip backward 10 seconds
-    }
-    lastTapLeft = currentTime;
-});
-
-document.getElementById("rightTap").addEventListener("click", function () {
-    let currentTime = new Date().getTime();
-    if (currentTime - lastTapRight < 300) {
-        player.currentTime = Math.min(player.duration, player.currentTime + 10); // Skip forward 10 seconds
-    }
-    lastTapRight = currentTime;
-});
+        // Enhanced mobile touch controls with double tap
+        document.addEventListener('DOMContentLoaded', function() {
+            const leftTap = document.getElementById("leftTap");
+            const rightTap = document.getElementById("rightTap");
+            
+            if (leftTap && rightTap) {
+                let lastTapTimeLeft = 0;
+                let lastTapTimeRight = 0;
+                const doubleTapThreshold = 300; // milliseconds
+                
+                leftTap.addEventListener("click", function(e) {
+                    const now = new Date().getTime();
+                    const timeSince = now - lastTapTimeLeft;
+                    
+                    if (timeSince < doubleTapThreshold) {
+                        // Double tap detected
+                        const videoElement = document.querySelector('video');
+                        if (videoElement) {
+                            videoElement.currentTime = Math.max(0, videoElement.currentTime - 10);
+                            showSkipIndicator(skipBackwardIndicator);
+                            e.preventDefault(); // Prevent default behavior
+                        }
+                    }
+                    
+                    lastTapTimeLeft = now;
+                });
+                
+                rightTap.addEventListener("click", function(e) {
+                    const now = new Date().getTime();
+                    const timeSince = now - lastTapTimeRight;
+                    
+                    if (timeSince < doubleTapThreshold) {
+                        // Double tap detected
+                        const videoElement = document.querySelector('video');
+                        if (videoElement) {
+                            videoElement.currentTime = Math.min(videoElement.duration, videoElement.currentTime + 10);
+                            showSkipIndicator(skipForwardIndicator);
+                            e.preventDefault(); // Prevent default behavior
+                        }
+                    }
+                    
+                    lastTapTimeRight = now;
+                });
+            }
+        });
     </script>
 
 </body>
